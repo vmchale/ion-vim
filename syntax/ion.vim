@@ -12,6 +12,7 @@ else
   unlet b:current_syntax
 endif
 
+syntax keyword shFunctionKey &&
 syntax keyword shFunctionKey .
 syntax keyword shFunctionKey alias
 syntax keyword shFunctionKey break
