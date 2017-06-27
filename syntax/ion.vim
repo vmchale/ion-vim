@@ -8,10 +8,12 @@ endif
 if version < 600
   so <sfile>:p:h/sh.vim
 else
-  let b:is_bash = "1"
   runtime! syntax/sh.vim
   unlet b:current_syntax
 endif
+
+
+syn region shSingleQuote matchgroup=shQuote start=+'+ skip=+\\\\\|\\.\|\\'+ end=+'+ contains=@Spell
 
 syntax keyword shFunctionKey &&
 syntax keyword shFunctionKey &
