@@ -25,6 +25,8 @@ syntax keyword shFunctionKey cd
 syntax keyword shFunctionKey complete
 syntax keyword shFunctionKey continue
 syntax keyword shFunctionKey count
+syntax keyword shFunctionKey let
+syntax keyword shFunctionKey mkdir
 syntax keyword shFunctionKey echo
 syntax keyword shFunctionKey else
 syntax keyword shFunctionKey end
