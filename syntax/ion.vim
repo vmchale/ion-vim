@@ -13,6 +13,7 @@ else
 endif
 
 syntax keyword shFunctionKey &&
+syntax keyword shFunctionKey &
 syntax keyword shFunctionKey .
 syntax keyword shFunctionKey alias
 syntax keyword shFunctionKey break
