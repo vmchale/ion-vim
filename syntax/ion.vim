@@ -8,6 +8,7 @@ endif
 if version < 600
   so <sfile>:p:h/sh.vim
 else
+  let b:is_bash = "1"
   runtime! syntax/sh.vim
   unlet b:current_syntax
 endif
@@ -15,6 +16,7 @@ endif
 syntax keyword shFunctionKey &&
 syntax keyword shFunctionKey &
 syntax keyword shFunctionKey .
+syntax keyword shFunctionKey ..
 syntax keyword shFunctionKey alias
 syntax keyword shFunctionKey break
 syntax keyword shFunctionKey cd
@@ -36,5 +38,4 @@ syntax keyword shFunctionKey set
 syntax keyword shFunctionKey status
 syntax keyword shFunctionKey test
 syntax keyword shFunctionKey while
-
 syntax keyword shFunctionKey in
