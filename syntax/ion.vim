@@ -18,7 +18,7 @@ syn match operator '&'
 syn match operator '&&'
 syn match operator '||'
 syn match operator '[|<>&]'
-syn match flag '-\w\+'
+syn match flag '[ ]\([-]\)\w\+'
 
 syntax keyword ionKeyword .
 syntax keyword ionKeyword ..
