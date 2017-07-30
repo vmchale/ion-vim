@@ -1,45 +1,81 @@
-
 if version < 600
   syntax clear
 elseif exists("b:current_syntax")
   finish
 endif
 
-if version < 600
-  so <sfile>:p:h/sh.vim
-else
-  runtime! syntax/sh.vim
-  unlet b:current_syntax
-endif
+syn region doubleQuote start='"' end='"' contains=variable,process
+syn region singleQuote start='\'' end='\''
+syn region arrayVar start="@{" end="}"
+syn match arrayVar "@[a-zA-Z0-9_]\+"
+syn region variable start="${" end="}"
+syn match variable "$[a-zA-Z0-9_]\+"
+syn region process start="$(" end=")" transparent
+syn region process start="@(" end=")" transparent
+syn match ionNumber '[+-]\?\([0-9]*[.]\)\?[0-9]\+'
+syn match comment '[#].*$'
 
+syntax keyword ionKeyword &
+syntax keyword ionKeyword &&
+syntax keyword ionKeyword .
+syntax keyword ionKeyword ..
+syntax keyword ionKeyword alias
+syntax keyword ionKeyword and
+syntax keyword ionKeyword bg
+syntax keyword ionKeyword break
+syntax keyword ionKeyword calc
+syntax keyword ionKeyword case
+syntax keyword ionKeyword cd
+syntax keyword ionKeyword complete
+syntax keyword ionKeyword contains
+syntax keyword ionKeyword continue
+syntax keyword ionKeyword count
+syntax keyword ionKeyword dirs
+syntax keyword ionKeyword disown
+syntax keyword ionKeyword drop
+syntax keyword ionKeyword echo
+syntax keyword ionKeyword else
+syntax keyword ionKeyword end
+syntax keyword ionKeyword ends-with
+syntax keyword ionKeyword eval
+syntax keyword ionKeyword exec
+syntax keyword ionKeyword exit
+syntax keyword ionKeyword false
+syntax keyword ionKeyword fg
+syntax keyword ionKeyword fn
+syntax keyword ionKeyword for
+syntax keyword ionKeyword help
+syntax keyword ionKeyword history
+syntax keyword ionKeyword if
+syntax keyword ionKeyword in
+syntax keyword ionKeyword jobs
+syntax keyword ionKeyword let
+syntax keyword ionKeyword match
+syntax keyword ionKeyword matches
+syntax keyword ionKeyword mkdir
+syntax keyword ionKeyword not
+syntax keyword ionKeyword or
+syntax keyword ionKeyword popd
+syntax keyword ionKeyword pushd
+syntax keyword ionKeyword pwd
+syntax keyword ionKeyword read
+syntax keyword ionKeyword set
+syntax keyword ionKeyword source
+syntax keyword ionKeyword starts-with
+syntax keyword ionKeyword status
+syntax keyword ionKeyword suspend
+syntax keyword ionKeyword test
+syntax keyword ionKeyword time
+syntax keyword ionKeyword true
+syntax keyword ionKeyword unalias
+syntax keyword ionKeyword wait
+syntax keyword ionKeyword while
 
-syn region shSingleQuote matchgroup=shQuote start=+'+ skip=+\\\\\|\\.\|\\'+ end=+'+ contains=@Spell
-
-syntax keyword shFunctionKey &&
-syntax keyword shFunctionKey &
-syntax keyword shFunctionKey .
-syntax keyword shFunctionKey ..
-syntax keyword shFunctionKey alias
-syntax keyword shFunctionKey break
-syntax keyword shFunctionKey cd
-syntax keyword shFunctionKey complete
-syntax keyword shFunctionKey continue
-syntax keyword shFunctionKey count
-syntax keyword shFunctionKey let
-syntax keyword shFunctionKey mkdir
-syntax keyword shFunctionKey echo
-syntax keyword shFunctionKey else
-syntax keyword shFunctionKey end
-syntax keyword shFunctionKey exec
-syntax keyword shFunctionKey exit
-syntax keyword shFunctionKey for
-syntax keyword shFunctionKey history
-syntax keyword shFunctionKey if
-syntax keyword shFunctionKey not
-syntax keyword shFunctionKey pwd
-syntax keyword shFunctionKey read
-syntax keyword shFunctionKey set
-syntax keyword shFunctionKey status
-syntax keyword shFunctionKey test
-syntax keyword shFunctionKey while
-syntax keyword shFunctionKey in
+hi def link ionKeyword Statement
+hi def link arrayVar Identifier
+hi def link variable Identifier
+hi def link ionNumber Constant
+hi def link doubleQuote Type
+hi def link singleQuote Type
+hi def link process PreProc
+hi def link comment Comment
