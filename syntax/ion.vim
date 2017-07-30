@@ -4,7 +4,7 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn region doubleQuote start='"' end='"' contains=arrayVar,variable,process
+syn region doubleQuote start='"' end='"' contains=arrayVar,variable,process,singleQuote
 syn region singleQuote start='\'' end='\''
 syn region arrayVar start="@{" end="}"
 syn match arrayVar "@[a-zA-Z0-9_]\+"
@@ -14,9 +14,11 @@ syn region process start="$(" end=")" transparent
 syn region process start="@(" end=")" transparent
 syn match ionNumber '[+-]\?\([0-9]*[.]\)\?[0-9]\+'
 syn match comment '[#].*$'
+syn match operator '&'
+syn match operator '&&'
+syn match operator '||'
+syn match operator '[|<>&]'
 
-syntax keyword ionKeyword &
-syntax keyword ionKeyword &&
 syntax keyword ionKeyword .
 syntax keyword ionKeyword ..
 syntax keyword ionKeyword alias
@@ -27,7 +29,6 @@ syntax keyword ionKeyword calc
 syntax keyword ionKeyword case
 syntax keyword ionKeyword cd
 syntax keyword ionKeyword complete
-syntax keyword ionKeyword contains
 syntax keyword ionKeyword continue
 syntax keyword ionKeyword count
 syntax keyword ionKeyword dirs
@@ -36,7 +37,6 @@ syntax keyword ionKeyword drop
 syntax keyword ionKeyword echo
 syntax keyword ionKeyword else
 syntax keyword ionKeyword end
-syntax keyword ionKeyword ends-with
 syntax keyword ionKeyword eval
 syntax keyword ionKeyword exec
 syntax keyword ionKeyword exit
@@ -61,7 +61,6 @@ syntax keyword ionKeyword pwd
 syntax keyword ionKeyword read
 syntax keyword ionKeyword set
 syntax keyword ionKeyword source
-syntax keyword ionKeyword starts-with
 syntax keyword ionKeyword status
 syntax keyword ionKeyword suspend
 syntax keyword ionKeyword test
@@ -71,11 +70,20 @@ syntax keyword ionKeyword unalias
 syntax keyword ionKeyword wait
 syntax keyword ionKeyword while
 
-hi def link ionKeyword Statement
-hi def link arrayVar Identifier
-hi def link variable Identifier
-hi def link ionNumber Constant
-hi def link doubleQuote Type
-hi def link singleQuote Type
+hi Operator cterm=bold ctermfg=white
+hi Array    ctermfg=lightblue cterm=bold
+hi String   ctermfg=lightmagenta cterm=bold
+hi DoubleQuote ctermfg=green
+hi SingleQuote ctermfg=lightgreen
+hi Numbers ctermfg=lightcyan
+hi! Comment ctermfg=grey cterm=italic
+hi Keywords ctermfg=magenta cterm=bold
+hi def link ionKeyword Keywords
+hi def link arrayVar Array
+hi def link variable String
+hi def link ionNumber Numbers
+hi def link doubleQuote DoubleQuote
+hi def link singleQuote SingleQuote
 hi def link process PreProc
 hi def link comment Comment
+hi def link operator Operator
