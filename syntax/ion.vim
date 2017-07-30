@@ -18,6 +18,7 @@ syn match operator '&'
 syn match operator '&&'
 syn match operator '||'
 syn match operator '[|<>&]'
+syn match flag '-\w\+'
 
 syntax keyword ionKeyword .
 syntax keyword ionKeyword ..
@@ -70,14 +71,16 @@ syntax keyword ionKeyword unalias
 syntax keyword ionKeyword wait
 syntax keyword ionKeyword while
 
-hi Operator cterm=bold ctermfg=white
-hi Array    ctermfg=lightblue cterm=bold
-hi String   ctermfg=lightmagenta cterm=bold
+hi Operator    cterm=bold ctermfg=white
+hi Array       cterm=bold ctermfg=lightblue
+hi String      cterm=bold ctermfg=lightmagenta
 hi DoubleQuote ctermfg=green
 hi SingleQuote ctermfg=lightgreen
-hi Numbers ctermfg=lightcyan
-hi! Comment ctermfg=grey cterm=italic
-hi Keywords ctermfg=magenta cterm=bold
+hi Numbers     ctermfg=cyan
+hi! Comment    ctermfg=grey cterm=italic
+hi Keywords    ctermfg=magenta cterm=bold
+hi Flag        cterm=bold ctermfg=darkyellow
+
 hi def link ionKeyword Keywords
 hi def link arrayVar Array
 hi def link variable String
@@ -87,3 +90,4 @@ hi def link singleQuote SingleQuote
 hi def link process PreProc
 hi def link comment Comment
 hi def link operator Operator
+hi def link flag Flag
