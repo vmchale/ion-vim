@@ -4,7 +4,7 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn region doubleQuote start='"' end='"' contains=variable,process
+syn region doubleQuote start='"' end='"' contains=arrayVar,variable,process
 syn region singleQuote start='\'' end='\''
 syn region arrayVar start="@{" end="}"
 syn match arrayVar "@[a-zA-Z0-9_]\+"
