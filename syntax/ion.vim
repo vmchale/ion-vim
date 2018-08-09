@@ -1,24 +1,24 @@
-if version < 600
+if v:version < 600
   syntax clear
-elseif exists("b:current_syntax")
+elseif exists('b:current_syntax')
   finish
 endif
 
-syn region doubleQuote start='"' end='"' contains=arrayVar,variable,process,singleQuote
-syn region singleQuote start='\'' end='\''
-syn region arrayVar start="@{" end="}"
-syn match arrayVar "@[a-zA-Z0-9_]\+"
-syn region variable start="${" end="}"
-syn match variable "$[a-zA-Z0-9_]\+"
-syn region process start="$(" end=")" transparent
-syn region process start="@(" end=")" transparent
+syn region ionDoubleQuote start='"' end='"' contains=arrayVar,variable,process,singleQuote
+syn region ionSingleQuote start='\'' end='\''
+syn region ionArrayVar start="@{" end="}"
+syn match ionArrayVar "@[a-zA-Z0-9_]\+"
+syn region ionVariable start="${" end="}"
+syn match ionVariable "$[a-zA-Z0-9_]\+"
+syn region ionProcess start="$(" end=")" transparent
+syn region ionProcess start="@(" end=")" transparent
 syn match ionNumber '[+-]\?\([0-9]*[.]\)\?[0-9]\+'
-syn match comment '[#].*$'
-syn match operator '&'
-syn match operator '&&'
-syn match operator '||'
-syn match operator '[|<>&]'
-syn match flag '[ ]\([-]\)\w\+'
+syn match ionComment '[#].*$'
+syn match ionOperator '&'
+syn match ionOperator '&&'
+syn match ionOperator '||'
+syn match ionOperator '[|<>&]'
+syn match ionFlag '[ ]\([-]\)\w\+'
 
 syntax keyword ionKeyword .
 syntax keyword ionKeyword ..
@@ -82,12 +82,12 @@ hi Keywords    ctermfg=magenta cterm=bold
 hi Flag        cterm=bold ctermfg=darkyellow
 
 hi def link ionKeyword Keywords
-hi def link arrayVar Array
+hi def link ionArrayVar Array
 hi def link variable String
 hi def link ionNumber Numbers
-hi def link doubleQuote DoubleQuote
-hi def link singleQuote SingleQuote
-hi def link process PreProc
-hi def link comment Comment
-hi def link operator Operator
-hi def link flag Flag
+hi def link ionDoubleQuote DoubleQuote
+hi def link ionSingleQuote SingleQuote
+hi def link ionProcess PreProc
+hi def link ionComment Comment
+hi def link ionOperator Operator
+hi def link ionFlag Flag
