@@ -4,7 +4,7 @@ elseif exists('b:current_syntax')
   finish
 endif
 
-syn region ionDoubleQuote start='"' end='"' contains=arrayVar,variable,process,singleQuote
+syn region ionDoubleQuote start='"' end='"' contains=ionArrayVar,ionVariable,ionProcess,ionSingleQuote
 syn region ionSingleQuote start='\'' end='\''
 syn region ionArrayVar start="@{" end="}"
 syn match ionArrayVar "@[a-zA-Z0-9_]\+"
@@ -83,7 +83,7 @@ hi Flag        cterm=bold ctermfg=darkyellow
 
 hi def link ionKeyword Keywords
 hi def link ionArrayVar Array
-hi def link variable String
+hi def link ionVariable String
 hi def link ionNumber Numbers
 hi def link ionDoubleQuote DoubleQuote
 hi def link ionSingleQuote SingleQuote
