@@ -71,23 +71,13 @@ syntax keyword ionKeyword unalias
 syntax keyword ionKeyword wait
 syntax keyword ionKeyword while
 
-hi Operator    cterm=bold ctermfg=white
-hi Array       cterm=bold ctermfg=lightblue
-hi String      cterm=bold ctermfg=lightmagenta
-hi DoubleQuote ctermfg=green
-hi SingleQuote ctermfg=lightgreen
-hi Numbers     ctermfg=cyan
-hi! Comment    ctermfg=grey cterm=italic
-hi Keywords    ctermfg=magenta cterm=bold
-hi Flag        cterm=bold ctermfg=darkyellow
-
-hi def link ionKeyword Keywords
-hi def link ionArrayVar Array
-hi def link ionVariable String
-hi def link ionNumber Numbers
-hi def link ionDoubleQuote DoubleQuote
-hi def link ionSingleQuote SingleQuote
+hi def link ionKeyword Keyword
+hi def link ionArrayVar Constant
+hi def link ionVariable Identifier
+hi def link ionNumber Number
+hi def link ionDoubleQuote String
+hi def link ionSingleQuote String
 hi def link ionProcess PreProc
 hi def link ionComment Comment
 hi def link ionOperator Operator
-hi def link ionFlag Flag
+hi def link ionFlag Boolean
