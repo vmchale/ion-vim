@@ -4,8 +4,8 @@ elseif exists('b:current_syntax')
   finish
 endif
 
-syn region ionDoubleQuote start='"' end='"' contains=ionArrayVar,ionVariable,ionProcess,ionSingleQuote
-syn region ionSingleQuote start='\'' end='\''
+syn region ionDoubleQuote start='"' skip='\'' end='"' contains=ionArrayVar,ionVariable,ionProcess
+syn region ionSingleQuote start='\'' skip='"' end='\''
 syn region ionArrayVar start="@{" end="}"
 syn match ionArrayVar "@[a-zA-Z0-9_]\+"
 syn region ionVariable start="${" end="}"
